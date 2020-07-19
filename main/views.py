@@ -17,12 +17,12 @@ def ToDoList(request):
     email = request.user.email
     user = Profile.objects.get(email=email)
 
-    # print(user.todolist_set.all())
+    return render(request, "main/todo.html", {"todoList": user.todolist_set.all()})
 
-    for todo in user.todolist_set.all():
-        print(todo.title)
-        print(todo.description)
-        print(todo.deadline)
 
-    return render(request, "main/todo.html", {})
+def removeToDo(request, title):
+
+    user = Profile.objects.get(email=request.user.email)
+    user.todolist_set.get(title=title).delete()
+    return redirect("/todo")
 
