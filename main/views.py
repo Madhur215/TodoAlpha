@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
+from .models import Profile, TodoList
 
 
 def Home(request):
@@ -11,6 +12,17 @@ def Home(request):
         return render(request, "main/Home.html", {})
 
 
-# def index(response):
-#     return render(response, "main/index.html", {})
-#     # return HttpResponse("<h1>Hello</h1>")
+def ToDoList(request):
+
+    email = request.user.email
+    user = Profile.objects.get(email=email)
+
+    # print(user.todolist_set.all())
+
+    for todo in user.todolist_set.all():
+        print(todo.title)
+        print(todo.description)
+        print(todo.deadline)
+
+    return render(request, "main/todo.html", {})
+
