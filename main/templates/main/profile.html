@@ -1,0 +1,18 @@
+{% extends "main/Base.html" %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+    <div class="wrapper" style="margin-top: 50px; margin-left: 30px">
+        <h1>User Profile</h1>
+        <hr class="mt-0 mb-4">
+        <br>
+        <h3>Name</h3>
+        <p>{{user.first_name}} {{user.last_name}}</p>
+        <h3>Email</h3>
+        <p>{{user.email}}</p>
+        <h3>Phone Number</h3>
+        <p>{{user.phone_number}}</p>
+    </div>
+
+{% endblock %}

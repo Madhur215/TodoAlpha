@@ -6,5 +6,6 @@ urlpatterns = [
     path("todo/", views.ToDoList, name="todo"),
     path("delete/<str:title>", views.removeToDo, name="remove"),
     path("addItem/", views.AddItem, name="addItem"),
+    path("profile/", views.UserProfile, name="profile"),
 ]
 

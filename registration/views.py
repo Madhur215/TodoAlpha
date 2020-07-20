@@ -32,7 +32,7 @@ def SignUp(request):
                 login(request, user)
                 profile = Profile(email=email, first_name=first_name, last_name=last_name, phone_number=phone_number)
                 profile.save()
-                return redirect("/home")
+                return redirect("/profile")
     else:
         form = SignUpForm()
     return render(request, "registration/signup.html", {"form": form, "heading": "Sign Up", "message": message})

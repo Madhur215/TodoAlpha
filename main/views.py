@@ -44,3 +44,10 @@ def AddItem(request):
         form = AddItemForm()
     return render(request, "main/AddItem.html", {"form": form})
 
+
+def UserProfile(request):
+    email = request.user.email
+    user = Profile.objects.get(email=email)
+
+    return render(request, "main/profile.html", {"user": user})
+
