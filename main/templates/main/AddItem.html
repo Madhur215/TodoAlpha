@@ -1,0 +1,16 @@
+{% extends "main/Base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Add Item{% endblock %}
+
+{% block content %}
+    <center>
+        <div class="sign-up form" style="max-width: 600px">
+            <form method="post" class="form-group">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" name="addItem" value="addItem" class="btn btn-success">Add Item</button>
+            </form>
+        </div>
+    </center>
+
+{% endblock %}
